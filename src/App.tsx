@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Copy, Calendar, Server, MapPin, Terminal, Check } from 'lucide-react';
 
 interface Building {
