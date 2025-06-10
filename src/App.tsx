@@ -4,7 +4,7 @@ import { Copy, Calendar, Server, MapPin, Terminal, Check } from 'lucide-react';
 interface Building {
   id: string;
   name: string;
-  group: 'IIG' | 'NIX' | 'DC3';
+  group: 'IIG' | 'NIX' | 'IDC3';
 }
 
 const buildings: Building[] = [
@@ -12,16 +12,16 @@ const buildings: Building[] = [
   { id: 'Tokyo', name: 'Tokyo', group: 'NIX' },
   { id: 'Zeus', name: 'Zeus', group: 'NIX' },
   { id: 'Archer', name: 'Archer', group: 'IIG' },
-  { id: 'IDC32NIX', name: 'IDC32NIX', group: 'NIX' },
-  { id: 'IDC32IIG', name: 'IDC32IIG', group: 'IIG' },
-  { id: 'DC3NIX', name: 'DC3NIX', group: 'DC3' },
-  { id: 'IDC3IIG', name: 'IDC3IIG', group: 'DC3' },
+  { id: 'IDC32NIX', name: 'IDC32NIX', group: 'IDC3' },
+  { id: 'IDC32IIG', name: 'IDC32IIG', group: 'IDC3' },
+  { id: 'IDC3NIX', name: 'IDC3NIX', group: 'IDC3' },
+  { id: 'IDC3IIG', name: 'IDC3IIG', group: 'IDC3' },
 ];
 
 const buildingGroups = {
   IIG: buildings.filter(b => b.group === 'IIG'),
   NIX: buildings.filter(b => b.group === 'NIX'),
-  DC3: buildings.filter(b => b.group === 'DC3'),
+  IDC3: buildings.filter(b => b.group === 'IDC3'),
 };
 
 function App() {
@@ -88,7 +88,7 @@ function App() {
     setSelectedBuildings(buildings.map(b => b.id));
   };
 
-  const selectBuildingGroup = (group: 'IIG' | 'NIX' | 'DC3') => {
+  const selectBuildingGroup = (group: 'IIG' | 'NIX' | 'IDC3') => {
     const groupBuildings = buildingGroups[group].map(b => b.id);
     const allSelected = groupBuildings.every(id => selectedBuildings.includes(id));
     
@@ -114,11 +114,11 @@ function App() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
+            <div className="bg-gradient-to-r from-green-500 to-green-700 px-8 py-6">
               <div className="flex items-center space-x-3">
                 <Terminal className="h-8 w-8 text-white" />
                 <div>
-                  <h1 className="text-2xl font-bold text-white">NFSEN Command Generator</h1>
+                  <h1 className="text-2xl font-bold text-white">NFSEN Command Generator By ตาบี๋</h1>
                   <p className="text-blue-100 mt-1">เครื่องมือสร้างคำสั่ง NFSEN สำหรับการดึงข้อมูล Network Flow</p>
                 </div>
               </div>
@@ -230,7 +230,7 @@ function App() {
                       <div className="flex items-center justify-between mb-3">
                         <h3 className="font-semibold text-gray-800">{groupName}</h3>
                         <button
-                          onClick={() => selectBuildingGroup(groupName as 'IIG' | 'NIX' | 'DC3')}
+                          onClick={() => selectBuildingGroup(groupName as 'IIG' | 'NIX' | 'IDC3')}
                           className="text-sm px-3 py-1 bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition-colors"
                         >
                           {groupBuildings.every(b => selectedBuildings.includes(b.id)) ? 'ยกเลิก' : 'เลือก'} {groupName}
