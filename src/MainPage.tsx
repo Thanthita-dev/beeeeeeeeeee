@@ -24,7 +24,7 @@ const buildingGroups = {
   IDC3: buildings.filter(b => b.group === 'IDC3'),
 };
 
-function App() {
+function MainPage() {
   const [server, setServer] = useState<'nfsen' | 's3'>('nfsen');
   const [selectedBuildings, setSelectedBuildings] = useState<string[]>([]);
   const [startDate, setStartDate] = useState('');
@@ -336,4 +336,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainPage;
